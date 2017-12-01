@@ -1,0 +1,3 @@
+Log:	if(!strcmp(topic, "\topic\")){:sub:start:
+Log:}:sub:end:
+Description:If Subscriber subscribed the topic Actuator will act with no condition.:

@@ -1,0 +1,8 @@
+Package:Intel:
+Arch:i686:
+Board:izmir_ec:
+Log:#include <WiFi.h>:inc::
+Log:WiFiClient wifi_client;:def::
+Log:WiFi.begin(UI_WIFI_SSID, UI_WIFI_PASSWORD);:setup1::
+Log:	while (WiFi.status() != WL_CONNECTED) {:setup1::
+Log:	}:setup1::

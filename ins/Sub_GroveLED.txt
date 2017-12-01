@@ -1,0 +1,8 @@
+Input:digitalpin:
+Input:delay:
+Log:pinMode(\digitalpin\,OUTPUT);:setup1:ins:
+Log:digitalWrite(\digitalpin\,HIGH);:sub:ins:
+Log:delay(\delay\);:sub:ins:
+Log:digitalWrite(\digitalpin\,LOW);:sub:ins:
+Log:client.loop();:pub::
+Description:GroveLED will shine during the delay .:

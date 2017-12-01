@@ -1,0 +1,8 @@
+Input:print:
+Log:#include <Wire.h>:inc::
+Log:#include "rgb_lcd.h":inc::
+Log:rgb_lcd lcd;:def::
+Log:client.loop();:pub::
+Log:lcd.begin(16,2);:sub:ins:
+Log:lcd.print(\print\);:sub:ins:
+Description:Column,Row are the way of display . print will be printed RGBBacklight . If print is str , the value of subscribe will display .If you want display just string , you have to use double quotation. If you want to connect string and value ,you have to use + .:

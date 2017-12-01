@@ -1,0 +1,5 @@
+Input:digitalpin:
+Input:scale:
+Input:delay:
+Log:Tone(\digitalpin\,\scale\,\delay\);:sub:ins:
+Description:scale 262 = C , scale 294 = D , scale 330 = E , scale 349 = F , scale 392 = G , scale 440 = A , scale 494 = B:

@@ -1,0 +1,8 @@
+Package:esp8266:
+Arch:esp8266:
+Board:generic:
+Log:#include <ESP8266WiFi.h>:inc::
+Log:WiFiClient wifi_client;:def::
+Log:WiFi.begin(UI_WIFI_SSID, UI_WIFI_PASSWORD);:setup1::
+Log:	while (WiFi.status() != WL_CONNECTED) {:setup1::
+Log:	}:setup1::

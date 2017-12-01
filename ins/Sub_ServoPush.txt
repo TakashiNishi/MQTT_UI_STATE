@@ -1,0 +1,10 @@
+Input:digitalpin:
+Log:#include <Servo.h>:inc::
+Log:Servo sv;:def::
+Log:sv.attach(\digitalpin\);:setup1::
+Log:delay(1000);:setup1::
+Log:sv.writeMicroseconds(1775);:sub:ins:
+Log:delay(1000);:sub:ins:
+Log:sv.writeMicroseconds(1550);:sub:ins:
+Log:delay(1000);:sub:ins:
+Description:Servo motor rotates right 90 degree and rotates 0 degree after 1second delay:

@@ -1,0 +1,8 @@
+Input:analogpin:
+Log:int GroveRotate_value\num\ = analogRead(A\analogpin\);:pub:ins:
+Log:float GroveRotate_voltage\num\ =(float)GroveRotate_value\num\*5/1023;:pub:ins:
+Log:int GroveRotate_degree\num\ = (((GroveRotate_voltage\num\*300)/5));:pub:ins:
+Log:char buf[10];:pub:ins:
+Log:sprintf(buf,"%d",GroveRotate_degree\num\);:pub:ins:
+Log:client.publish(\topic\,buf);:pub:ins:
+Description:Grove Rotate publishes the angle of sensor.from 0 to 270.:

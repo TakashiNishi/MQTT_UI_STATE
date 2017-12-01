@@ -1,0 +1,7 @@
+Package:arduino:
+Arch:avr:
+Board:yun:
+Log:#include <Bridge.h>:inc::
+Log:#include <YunClient.h>:inc::
+Log:YunClient wifi_client;:def::
+Log:Bridge.begin();:setup1::

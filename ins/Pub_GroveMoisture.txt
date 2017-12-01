@@ -1,0 +1,5 @@
+Input:analogpin:
+Log:char buf[10];:pub:ins:
+Log:sprintf(buf,"%d",analogRead(A\analogpin\));:pub:ins:
+Log:client.publish(\topic\,buf);:pub:ins:
+Description:Grove Moisture is used for judge if there is water around the sensor.:

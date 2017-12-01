@@ -1,0 +1,5 @@
+Input:From:
+Input:To:
+Log:	if(atof(json)>\From\&&atof(json)<\To\&&!strcmp(topic, "\topic\")){:sub:start:
+Log:}:sub:end:
+Description:If Subscriber subscribed the topic and value is more than From and value is less than To, Actuator will act.:

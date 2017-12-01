@@ -1,0 +1,6 @@
+Input:time:
+Log:long time\num\;:def::
+Log:if(ms-time\num\<\time\){:pub:start:
+Log:time\num\=millis();:pub:ins:
+Log:}:pub:end:
+Description:Publisher publishes constantly time-delimited.1->1ms,1000->1s:

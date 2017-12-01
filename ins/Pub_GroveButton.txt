@@ -1,0 +1,9 @@
+Input:digitalpin:
+Input:value:
+Log:int grove_buttonstate_saved\num\ = LOW;:def::
+Log:int grove_buttonstate_now\num\ = digitalRead(\digitalpin\);:pub:ins:
+Log:if(grove_buttonstate_now\num\==HIGH&&grove_buttonstate_saved\num\ ==LOW){:pub:ins:
+Log:client.publish(\topic\,"\value\");:pub:ins:
+Log:}:pub:ins:
+Log:grove_buttonstate_saved\num\ =digitalRead(\digitalpin\);:pub:ins:
+Description:Sound Sensor detect the sound strength of environment:

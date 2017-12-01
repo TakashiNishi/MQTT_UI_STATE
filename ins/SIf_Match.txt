@@ -1,0 +1,4 @@
+Input:Match:
+Log:	if(str=="\Match\"&&!strcmp(topic, "\topic\")){:sub:start:
+Log:}:sub:end:
+Description:If Subscriber subscribed the topic and value equals to Match, Actuator will act.:

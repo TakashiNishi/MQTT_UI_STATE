@@ -1,0 +1,10 @@
+Input:analogpin:
+Log:#include <math.h>:inc::
+Log:int atemp\num\ = analogRead(A\analogpin\);:pub:ins:
+Log:float rtemp\num\ = = 1023.0/((float)atemp\num\)-1.0;:pub:ins:
+Log:rtemp = 100000.0*rtemp\num\;:pub:ins:
+Log:float grovetemperature\num\=1.0/(log(rtemp\num\/100000.0)/4275+1/298.15)-273.15;:pub:ins:
+Log:char buf[10];:pub:ins:
+Log:sprintf(buf,"%d",grovetemperature\num\);:pub:ins:
+Log:client.publish(\topic\,buf);:pub:ins:
+Description:Temperature sensor is:

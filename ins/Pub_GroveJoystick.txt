@@ -1,0 +1,5 @@
+Input:analogpin:
+Log:char buf\num\[3];:pub:ins:
+Log:sprintf(buf\num\,"%d",analogRead(A\analogpin\));:pub:ins:
+Log:client.publish(\topic\,buf\num\);:pub:ins:
+Description:Grove Joystick Publishes Value of gradient. Value has two types X or Y.If you plug Grove JoyStick into A0 of Grove Shield, analogpin0=X, analogpin1=Y. The avarage value of gradient is 505:

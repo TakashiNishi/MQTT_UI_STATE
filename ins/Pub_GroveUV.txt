@@ -1,0 +1,13 @@
+Input:analogpin:
+Log:int GroveUV_value\num\;:pub:ins:
+Log:long GroveUV_sum\num\ = 0;:pub:ins:
+Log:for(int i=0;i<1024;i++){:pub:ins:
+Log:	GroveUV_value\num\=analogRead(A\analogpin\);:pub:ins:
+Log:	GroveUV_sum\num\=GroveUV_sum\num\+GroveUV_value\num\;:pub:ins:
+Log:}:pub:ins:
+Log:long meanVal\num\ = GroveUV_sum\num\/1024;:pub:ins:
+Log: GroveUV_sum\num\ = (meanVal\num\*1000/4.3-83)/21;:pub:ins:
+Log:char buf[10];:pub:ins:
+Log:sprintf(buf,"%d",GroveUV_sum\num\);:pub:ins:
+Log:client.publish(\topic\,buf);:pub:ins:
+Description:Grove UV publishes the value of UV:

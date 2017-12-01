@@ -1,0 +1,4 @@
+Input:Less:
+Log:	if(atof(json)<\Less\&&!strcmp(topic, "\topic\")){:sub:start:
+Log:}:sub:end:
+Description:If Subscriber subscribed the topic and value is less than Less, Actuator will act.:
