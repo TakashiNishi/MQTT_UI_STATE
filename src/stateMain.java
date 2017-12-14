@@ -84,7 +84,7 @@ public class stateMain extends JFrame implements ActionListener {
 			p = new JPanel();
 			p.setLayout(new FlowLayout(FlowLayout.LEFT));
 
-			name= new JTextField("", 20);
+			name= new JTextField(state, 20);
 			p.add(name);
 
 			pubsub_combo=new JComboBox<String>();

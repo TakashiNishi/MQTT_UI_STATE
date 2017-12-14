@@ -19,8 +19,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
-public class PubConfig extends JFrame implements ActionListener {
-	static PubConfig frame;
+public class stateNext extends JFrame implements ActionListener {
+	static stateNext frame;
 	JComboBox<String> PIf_Combo = new JComboBox<String>();
 	JComboBox<String> Pub_Combo = new JComboBox<String>();
 	PIf pif;
@@ -71,9 +71,7 @@ public class PubConfig extends JFrame implements ActionListener {
 		Pub_Combo.addActionListener(this);
 	}
 
-	PubConfig(String title, Topic topic,int select) {
-		this.select = select;
-	
+	stateNext(String title) {
 		// insファイルからPD1属性ファイルを取得する
 		File file = new File("./\\ins");
 		File files[] = file.listFiles();

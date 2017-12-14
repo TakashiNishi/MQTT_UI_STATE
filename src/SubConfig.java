@@ -15,6 +15,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
@@ -40,24 +41,29 @@ public class SubConfig extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+
 		SIf_Combo.removeActionListener(this);
 		Sub_Combo.removeActionListener(this);
 		String cmdName = e.getActionCommand();
 
 		if (cmdName.equals("OK")) {
-			topic.removeLogAtt("sub");
-			topic.makeup("sub");
-			topic.addLog("  while (!client.subscribe(\""+topic.getTopic()+"\")) {", "setup2", "sub");
-			topic.addLog("}", "setup2", "sub");
+			if(((String)SIf_Combo.getSelectedItem()).isEmpty()||((String)Sub_Combo.getSelectedItem()).isEmpty()){
+				JOptionPane.showMessageDialog(this, "SIfとSubを選択してください。");
+			}else{
+				topic.removeLogAtt("sub");
+				topic.makeup("sub");
+				topic.addLog("  while (!client.subscribe(\""+topic.getTopic()+"\")) {", "setup2", "sub");
+				topic.addLog("}", "setup2", "sub");
 
-			topic.addLog("  if(state=="+select+") {", "pub", "sub");
-			topic.addLog("  while (!client.subscribe(\""+topic.getTopic()+"\")) {", "pub", "sub");
-			topic.addLog("	}", "pub", "sub");
-			topic.addLog("}", "pub", "sub");
+				topic.addLog("  if(state=="+select+") {", "pub", "sub");
+				topic.addLog("  while (!client.subscribe(\""+topic.getTopic()+"\")) {", "pub", "sub");
+				topic.addLog("	}", "pub", "sub");
+				topic.addLog("}", "pub", "sub");
 
-			Component c = (Component) e.getSource();
-			Window w = SwingUtilities.getWindowAncestor(c);
-			w.dispose();
+				Component c = (Component) e.getSource();
+				Window w = SwingUtilities.getWindowAncestor(c);
+				w.dispose();
+			}
 		} else if (cmdName.equals("SIf_Combo")) {
 			String temp = (String)SIf_Combo.getSelectedItem();
 			if(!temp.isEmpty()){
@@ -75,6 +81,7 @@ public class SubConfig extends JFrame implements ActionListener {
 	}
 
 	SubConfig(String title, Topic topic,int select) {
+		this.select = select;
 		// insファイルからPD1属性ファイルを取得する
 		File file = new File("./\\ins");
 		File files[] = file.listFiles();

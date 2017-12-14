@@ -81,12 +81,14 @@ public class statePrepare extends JFrame implements ActionListener {
 		//ボードのファイルの選択肢
 		File file = new File("./\\ins");//insファイルを参照
 		File files[] = file.listFiles();
-		mqtt_frame.addItem("");//ボードのコンボボックスに空白を追加
 		for (int i = 0; i < files.length; i++) {//このfor分でinsフォルダの中のうち、ファイル名の最初3文字がConであるファイルをボードのコンボボックスに追加
 			String filename = files[i].getName();
 			if (filename.substring(0, 3).equals("Con")) {
 				mqtt_frame.addItem(filename.substring(4, filename.length() - 4));
 			}
+
+			mqtt_frame.setSelectedItem(mqtt_frame.getItemAt(0));
+
 		}
 
 		//UIの通信関係の入力フォーム・ボタンの初期化・設定
@@ -184,6 +186,7 @@ public class statePrepare extends JFrame implements ActionListener {
 		String cn = e.getActionCommand();//コマンド名の取得
 
 		//connectクラスに通信系の設定をsetする
+		connect.setArduino(mqtt_frame.getSelectedItem().toString());
 		connect.setWifi_ssid(WIFI_SSID.getText());
 		connect.setWifi_password(WIFI_PASSWORD.getPassword());
 		connect.setMqtt_clientid(MQTT_CLIENTID.getText());
@@ -223,6 +226,8 @@ public class statePrepare extends JFrame implements ActionListener {
 			connect.openData();//Connectionクラスから通信関係のデータを呼び出す
 
 			//以下、呼び出したデータを入力フォームに書き込む
+
+
 			WIFI_SSID.setText(connect.getWifi_ssid());
 			WIFI_PASSWORD.setText(String.valueOf(connect.getWifi_password()));
 			MQTT_CLIENTID.setText(connect.getMqtt_clientid());
@@ -230,7 +235,7 @@ public class statePrepare extends JFrame implements ActionListener {
 			MQTT_PORT.setText(connect.getMqtt_port());
 			MQTT_USERNAME.setText(connect.getMqtt_username());
 			MQTT_PASSWORD.setText(String.valueOf(connect.getMqtt_password()));
-
+			mqtt_frame.setSelectedItem(connect.getArduino());
 
 		}
 

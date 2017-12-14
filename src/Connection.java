@@ -131,8 +131,11 @@ public class Connection extends JFrame{
 
 
 	//以下、Wi-FiとMQTT通信に関するデータのゲッター及びセッター
-	public void setWifi_ssid(String wifi_ssid) {
-		Connection.wifi_ssid = wifi_ssid;
+
+
+
+	public static String getArduino() {
+		return arduino;
 	}
 
 	public static String getWifi_ssid() {
@@ -161,6 +164,14 @@ public class Connection extends JFrame{
 
 	public static char[] getMqtt_password() {
 		return mqtt_password;
+	}
+
+	public void setArduino(String ar) {
+		Connection.arduino = ar;
+	}
+
+	public void setWifi_ssid(String wifi_ssid) {
+		Connection.wifi_ssid = wifi_ssid;
 	}
 
 	public void setWifi_password(char[] cs) {
@@ -237,7 +248,6 @@ public class Connection extends JFrame{
 	          String str;
 	          int num=0;
 	          while((str = br.readLine()) != null){
-
 	        	  switch(num){
 	        	  case 0:
 	        		  arduino = str;

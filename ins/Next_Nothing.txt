@@ -1,0 +1,4 @@
+Input:More:
+Log:	if(atof(json)>\More\&&!strcmp(topic, "\topic\")){:sub:start:
+Log:}:sub:end:
+Description:If Subscriber subscribed the topic and value is more than More, Actuator will act.:

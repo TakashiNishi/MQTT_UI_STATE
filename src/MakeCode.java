@@ -57,11 +57,12 @@ public class MakeCode {
 		setLog("#define UI_MQTT_CLIENTID \"" + Connection.getMqtt_clientid() + "\"", "def", "common");
 		setLog("#define UI_MQTT_SERVER \"" + Connection.getMqtt_server() + "\"", "def", "common");
 		setLog("#define UI_MQTT_PASSWORD \"" + String.valueOf(Connection.getMqtt_password()) + "\"", "def", "common");
-		setLog("#define UI_MQTT_PORT \"" + Connection.getMqtt_port() + "\"", "def", "common");
+		setLog("#define UI_MQTT_PORT " + Connection.getMqtt_port() + "", "def", "common");
 		setLog("#define UI_MQTT_USERNAME \"" + Connection.getMqtt_username() + "\"", "def", "common");
 		setLog("", "blank", "common");
 
 		setLog("long ms=0;", "def", "common");
+		setLog("int state=0;", "def", "common");
 		setLog("void callback(char* topic, byte* payload, unsigned int length);", "def", "common");
 		insert("def");
 		setLog("", "blank", "common");
@@ -71,7 +72,6 @@ public class MakeCode {
 		setLog("", "blank", "common");
 
 		setLog("void setup(){", "etup", "common");
-		setLog("	int state = 0;", "setup", "common");
 		setLog("	Serial.begin(115200);", "setup", "common");
 		setLog("	Serial.println(\"start\");", "setup", "common");
 		setLog("	timecounter = 0;", "setup", "common");
@@ -97,7 +97,7 @@ public class MakeCode {
 		setLog("	}", "loop", "common");
 		setLog("	timecounter = timecounter+10;", "loop", "common");
 		insert("pub");
-		setLog("ms = micros();", "loop", "common");
+		setLog("	ms = micros();", "loop", "common");
 		setLog("}", "loop", "common");
 		setLog("", "blank", "common");
 

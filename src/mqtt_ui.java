@@ -38,13 +38,13 @@ public class mqtt_ui extends JFrame implements ActionListener {
 	ArrayList<JButton> mainDelete = new ArrayList<JButton>();//MSを削除するボタン
 
 	static statePrepare sp;
+	static stateNext sn;
 
 	// UI自体が持つstatic変数
 	static int select;//MSを複数設定するときに使う。何番目のMSか
 	static mqtt_ui frame;//UIに関するクラス
 
 	public static void main(String[] args) {
-		sp = new statePrepare();
 		frame = new mqtt_ui("MQTT UI For Arduino");//UIを呼び出す
 		frame.setVisible(true);//UIを可視化
 		frame.setResizable(false);//UIのサイズ変更不可
@@ -78,12 +78,10 @@ public class mqtt_ui extends JFrame implements ActionListener {
 
 		mqtt_frame.addActionListener(this);
 
-		JButton button_wait = new JButton("Wait");
 		JButton button_prepare = new JButton("Prepare");
-		JButton button_close = new JButton("Close");
-		button_wait.addActionListener(this);
+		JButton button_next = new JButton("Next");
 		button_prepare.addActionListener(this);
-		button_close.addActionListener(this);
+		button_next.addActionListener(this);
 
 
 
@@ -126,6 +124,16 @@ public class mqtt_ui extends JFrame implements ActionListener {
 			p.add(mainDelete.get(i));
 			main.add(p);
 		}
+
+
+		p = new JPanel();
+		p.setLayout(new FlowLayout(FlowLayout.LEFT));
+		JLabel next_print = new JLabel("Next");
+		next_print.setPreferredSize(new Dimension(145, 20));
+		p.add(next_print);
+		p.add(button_next);
+		main.add(p);
+
 
 
 		p = new JPanel();
@@ -179,8 +187,9 @@ public class mqtt_ui extends JFrame implements ActionListener {
 			state.get(number).review(number,frame);
 		}else if(cn.equals("Prepare")){
 			sp=new statePrepare("prepare");
-		}
-		if (cn == "Send" || cn == "Code") {//もしボタン名がSend,Codeなら
+		}else if(cn.equals("Next")){
+			sn=new stateNext("next");
+		}else if (cn == "Send" || cn == "Code") {//もしボタン名がSend,Codeなら
 
 		statePrepare.connect.setup((String) sp.mqtt_frame.getSelectedItem());//ボード情報を読み取り、Arduinoコード化をする
 			MakeCode code = new MakeCode(statePrepare.connect, state);//MakeCodeクラスにて、Topicで設定した部分をコード化する

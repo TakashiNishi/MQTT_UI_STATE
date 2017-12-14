@@ -1,0 +1,8 @@
+ESP8266
+hogeSSID
+hogehoge
+hogeCLientID
+hogeServer
+1883
+hige
+hoge
